@@ -1,8 +1,13 @@
 # RFC Hajimi Standard (RFC-HJM)
 
+_“哈基米咯南北绿豆阿西噶哈呀库那路～”_
+
 **Version:** 0.1
+
 **Status:** Experimental Standard
+
 **Author:** RFC Hajimi Standard Committee
+
 **Date:** January 3 2026
 
 ---
@@ -208,5 +213,3 @@ A reference browser-based transformation tool is available at `cli.html`. This t
 3.  **EXPERIMENTAL STATUS**: This standard is presented as an experimental security project. It should be used with appropriate caution in mission-critical environments.
 
 ---
-
-_“哈基米咯南北绿豆阿西噶哈呀库那路～”_
