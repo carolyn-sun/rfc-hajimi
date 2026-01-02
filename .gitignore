@@ -1,0 +1,30 @@
+# Julia generic
+*.jl.cov
+*.jl.mem
+*.jl.cache
+
+# Manifest.toml is often ignored in library packages to let the user's environment decide, 
+# but included in application packages. For RFC Hajimi as a standard, we usually ignore it.
+Manifest.toml
+
+# Project-specific
+# If you have local secret keys saved as files, ignore them by extension
+*.bhjm
+*.key
+*.sk
+*.hjm-key
+
+# Allow community public keys
+!community/keys/*.hjm-pub
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build artifacts
+HajimiApp/
