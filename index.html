@@ -126,6 +126,14 @@
         <div class="layer-interface">
             <h3>Layer 3: Ed25519 Signature Verification 基米签名验证 (哈/哈气)</h3>
             <p style="font-size: 0.9rem; color: #666; margin-top: -0.5rem;">Verify the authenticity and integrity of a signed message.<br/> 我这个级别的基米可以哈/哈气这个签名。</p>
+            
+            <div style="background: #eee; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                <strong>Layer 3 密钥说明 (Key Generation):</strong><br/>
+                The <strong>public key</strong> and <strong>private key</strong> can be generated using the official Julia CLI tool <a href="https://github.com/carolyn-sun/rfc-hajimi" style="color: inherit; text-decoration: underline;"><code>hjm_create_identity()</code></a>.
+                <br/>
+                生成<strong>公基</strong>与<strong>私基</strong>的官方方式是使用 Julia CLI 中的 <a href="https://github.com/carolyn-sun/rfc-hajimi" style="color: inherit; text-decoration: underline;"><code>hjm_create_identity()</code></a>。
+            </div>
+
             <div class="input-group">
                 <label>Plaintext Message 明文消息</label>
                 <input type="text" id="v-msg" placeholder="The original message">
@@ -199,6 +207,16 @@
             } catch(e) {
                 display.innerHTML = `<span class="status-error">大狗叫: ${e.message}</span>`;
             }
+        };
+
+        window.doGenerateKeys = function() {
+            const keyPair = nacl.sign.keyPair();
+            const pk = uint8ToHjm(keyPair.publicKey);
+            const sk = uint8ToHjm(keyPair.secretKey.slice(0, 32)); // Ed25519 seeds are 32 bytes
+            
+            const display = document.getElementById('keygen-display');
+            display.style.display = 'block';
+            display.innerText = `公基: ${pk}\n私基: ${sk}`;
         };
 
         window.doVerify = function() {
