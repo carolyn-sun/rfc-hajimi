@@ -12,6 +12,9 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.ref }}
+
 jobs:
   test:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
@@ -20,8 +23,7 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - "1.10"
-          - "1.11"
+          - "1.12"
         os:
           - ubuntu-latest
           - macOS-latest
