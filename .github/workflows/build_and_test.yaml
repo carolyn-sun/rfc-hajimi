@@ -8,6 +8,7 @@ on:
       - "src/**"
       - "test/**"
       - "build.jl"
+      - "Project.toml"
     pull_request:
     branches:
       - main
