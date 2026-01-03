@@ -130,7 +130,7 @@ using Random
         # Test Automatic Identity Creation Saving (Level 3)
         try
             rd, wr = redirect_stdin()
-            write(wr, "1\nAuto Tester\nautotester@example.com\n")
+            write(wr, "3\nAuto Tester\nautotester@example.com\n")
             sk_id, pk_id, id_s = hjm_create_identity()
             
             @test isfile("auto_tester.hjm-pub")
@@ -145,7 +145,7 @@ using Random
         # Test Automatic Exchange Key Creation Saving (Level 4)
         try
             rd, wr = redirect_stdin()
-            write(wr, "2\ntest_session\n")
+            write(wr, "4\ntest_session\n")
             sk_dh, pk_dh, id_dh = hjm_create_identity()
             
             @test isfile("test_session_dh.hjm-pub")
