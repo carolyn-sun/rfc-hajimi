@@ -107,10 +107,11 @@
             <h3>Layer 1: Hajimi Transformation (Encoding/Decoding) 基米变换</h3>
             <p style="font-size: 0.9rem; color: #666; margin-top: -0.5rem;">Input text to encode to Hajimi, or Hajimi stream to decode to text. <br/> 键入文本以编码为哈基密，或哈基密流以解码为文本。</p>
             <div class="input-group">
-                <label>Input</label>
+                <label>Input <button onclick="doPaste()" style="padding: 0.2rem 0.5rem; font-size: 0.8rem; margin-left: 0.5rem;">Paste 入基</button></label>
                 <textarea id="hjm-input" rows="3" placeholder="Enter text or 哈基密..."></textarea>
             </div>
             <button onclick="doTransform()">Transform 开基</button>
+            <button id="copy-btn" onclick="doCopy()" style="display: none; margin-left: 0.5rem;">Copy 拷基</button>
             <div id="result-display"></div>
         </div>
 
@@ -189,10 +190,13 @@
             return res;
         }
 
+        let lastHajimiResult = '';
+
         window.doTransform = function() {
             const val = document.getElementById('hjm-input').value.trim();
             const display = document.getElementById('result-display');
-            if (!val) { display.innerText = ""; return; }
+            const copyBtn = document.getElementById('copy-btn');
+            if (!val) { display.innerText = ""; copyBtn.style.display = 'none'; lastHajimiResult = ''; return; }
             
             const isHajimi = val.split('').slice(0, 6).every(c => ALPHABET.includes(c));
             
@@ -200,13 +204,36 @@
                 if (isHajimi) {
                     const bytes = hjmToUint8(val);
                     display.innerText = "Decoded Plaintext:\n" + new TextDecoder().decode(bytes);
+                    copyBtn.style.display = 'none';
+                    lastHajimiResult = '';
                 } else {
                     const bytes = new TextEncoder().encode(val);
-                    display.innerText = "Hajimi Stream (哈基密):\n" + uint8ToHjm(bytes);
+                    lastHajimiResult = uint8ToHjm(bytes);
+                    display.innerText = "Hajimi Stream (哈基密):\n" + lastHajimiResult;
+                    copyBtn.style.display = 'inline-block';
                 }
             } catch(e) {
                 display.innerHTML = `<span class="status-error">大狗叫: ${e.message}</span>`;
+                copyBtn.style.display = 'none';
+                lastHajimiResult = '';
             }
+        };
+
+        window.doCopy = function() {
+            if (lastHajimiResult) {
+                navigator.clipboard.writeText(lastHajimiResult).then(() => {
+                    const copyBtn = document.getElementById('copy-btn');
+                    const originalText = copyBtn.innerText;
+                    copyBtn.innerText = '已拷基 ✓';
+                    setTimeout(() => { copyBtn.innerText = originalText; }, 1500);
+                });
+            }
+        };
+
+        window.doPaste = function() {
+            navigator.clipboard.readText().then(text => {
+                document.getElementById('hjm-input').value = text;
+            });
         };
 
         window.doGenerateKeys = function() {
