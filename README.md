@@ -77,7 +77,7 @@ The alphabet consists of 16 specific Unicode characters. Each character correspo
 
 ### 5.1. Layer 1: Symmetric XOR (Obfuscation)
 
-Provides a basic level of privacy by XORing each input byte with an 8-bit `key` before encoding.
+Provides a basic layer of privacy by XORing each input byte with an 8-bit `key` before encoding.
 `secret_byte = original_byte ^ (key % 256)`
 
 ### 5.2. Layer 2: Asymmetric RSA (Confidentiality)
@@ -132,15 +132,15 @@ If you are integrating RFC Hajimi into a larger Julia project:
 # Standard HJM-16 Encoding
 cipher = hjm_encode("🐎 哈基米～哈基米～")
 
-# Keyed Symmetric Hajimi (Level 1)
+# Keyed Symmetric Hajimi (Layer 1)
 key = 127
 secret = hjm_encode("喝了蜂蜜就能更快！", key=key)
 plain = hjm_decode(secret, key=key)
 ```
 
-### 6.4. Asymmetric Hajimi (Level 2-4)
+### 6.4. Asymmetric Hajimi (Layer 2-4)
 
-#### Digital Signatures & Identity (Level 3)
+#### Digital Signatures & Identity (Layer 3)
 
 The official way to establish a verified identity.
 
@@ -176,7 +176,7 @@ sk_b, pk_b = hjm_dh_generate_keys()
 shared_secret = hjm_dh_shared_secret(sk_a, pk_b)
 ```
 
-#### Binary File Encryption (Level 1)
+#### Binary File Encryption (Layer 1)
 
 ```julia
 hjm_encrypt_file("secret.pdf", "secret.hjm", key=123)
@@ -201,8 +201,8 @@ A reference browser-based transformation tool is available at `cli.html`. This t
 ## 8. Security Considerations
 
 - The symmetric XOR layer is intended for obfuscation.
-- **Level 2 (RSA)**: Reference implementation uses small primes for demonstration; production scripts should use hardened RSA.
-- **Level 3 (Ed25519)** & **Level 4 (X25519)**: Implemented following RFC 8032 and Curve25519 specifications for cryptographic strength.
+- **Layer 2 (RSA)**: Reference implementation uses small primes for demonstration; production scripts should use hardened RSA.
+- **Layer 3 (Ed25519)** & **Layer 4 (X25519)**: Implemented following RFC 8032 and Curve25519 specifications for cryptographic strength.
 - RFC Hajimi provides a robust framework for character-oriented cryptographic operations.
 
 ---
