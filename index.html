@@ -190,7 +190,7 @@
                     display.innerText = "Decoded Plaintext:\n" + new TextDecoder().decode(bytes);
                 } else {
                     const bytes = new TextEncoder().encode(val);
-                    display.innerText = "Hajimi Stream:\n" + uint8ToHjm(bytes);
+                    display.innerText = "Hajimi Stream (哈基密):\n" + uint8ToHjm(bytes);
                 }
             } catch(e) {
                 display.innerHTML = `<span class="status-error">大狗叫: ${e.message}</span>`;
