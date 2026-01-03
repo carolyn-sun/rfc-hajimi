@@ -9,6 +9,7 @@ on:
       - "test/**"
       - "build.jl"
       - "Project.toml"
+      - ".github/workflows/build_and_test.yaml"
     pull_request:
       branches:
         - main
