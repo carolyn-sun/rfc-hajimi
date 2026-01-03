@@ -10,8 +10,8 @@ on:
       - "build.jl"
       - "Project.toml"
     pull_request:
-    branches:
-      - main
+      branches:
+        - main
 
 concurrency:
   group: ${{ github.ref }}
