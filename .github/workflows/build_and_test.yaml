@@ -4,16 +4,17 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - "README.md"
-      - "LICENSE"
-      - "index.html"
-  pull_request:
+    paths:
+      - "src/**"
+      - "test/**"
+      - "build.jl"
+    pull_request:
     branches:
       - main
 
 concurrency:
   group: ${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
