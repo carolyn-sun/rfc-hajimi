@@ -192,9 +192,11 @@ imported_sk = hjm_import_key(read("my_identity.key", String))
 
 ---
 
-## 7. Hajimi CLI
+## 7. Demo
 
-A reference browser-based transformation tool is available at `cli.html`. This tool allows for instant encoding and decoding of HJM-16 streams without requiring a Julia environment.
+A reference browser-based transformation tool is available at `index.html`. This tool allows for instant encoding and decoding of HJM-16 streams without requiring a Julia environment.
+
+The public site is available at [https://rfc-hajimi.gaafet.org](https://rfc-hajimi.gaafet.org).
 
 ---
 
