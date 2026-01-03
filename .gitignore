@@ -13,6 +13,7 @@ Manifest.toml
 *.key
 *.sk
 *.hjm-key
+./*.hjm-pub
 
 # Allow community public keys
 !community/keys/*.hjm-pub
