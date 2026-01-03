@@ -1,8 +1,8 @@
-# RFC Hajimi Standard (RFC-HJM)
+# RFC Hajimi Standard (RFC-HJM) 哈基密标准
 
 _“哈基米咯南北绿豆阿西噶哈呀库那路～”_
 
-**Version:** 0.1
+**Version:** 0.2
 
 **Status:** Experimental Standard
 
@@ -16,11 +16,11 @@ _“哈基米咯南北绿豆阿西噶哈呀库那路～”_
 
 RFC Hajimi (Request for Comments: Hajimi) defines a robust, character-based encoding and cryptographic framework. It transforms arbitrary binary data into a unique 16-character alphabet derived from cultural phonetic symbols. Beyond simple encoding, this standard specifies a multi-tier security architecture including symmetric XOR obfuscation, GPG-style asymmetric encryption, and Ed25519-based digital signatures.
 
-> RFC 哈基米标准（RFC-HJM）定义了一种稳健的基于字符的编码和加密框架。它将任意二进制数据转换为一种独特的由文化音素符号导出的 16 字符字母表。超过简单的编码，此标准指定了包括对称 XOR 混淆、GPG 风格的非对称加密和基于 Ed25519 的数字签名在内的多层安全架构。
+> 哈基密标准（RFC-HJM）定义了一种稳健的基于字符的编码和加密框架。它将任意二进制数据转换为一种独特的由文化音素符号导出的 16 字符字母表。超过简单的编码，此标准指定了包括对称 XOR 混淆、GPG 风格的非对称加密和基于 Ed25519 的数字签名在内的多层安全架构。
 
 The goal of RFC Hajimi is to provide a standardized, character-based method for data handling while maintaining the mathematical rigor of modern cryptography.
 
-> RFC Hajimi 的目标是提供一种标准化的、基于字符的数据处理方法，同时保持现代密码学的数学严谨性。
+> 哈基密标准（RFC-HJM）的目标是提供一种标准化的、基于字符的数据处理方法，同时保持现代密码学的数学严谨性。
 
 ---
 
@@ -30,6 +30,10 @@ The goal of RFC Hajimi is to provide a standardized, character-based method for 
 - **Nibble**: A 4-bit unit of data (half a byte).
 - **HJM-Enc (哈基米编码)**: The process of converting binary data to Hajimi characters.
 - **HJM-Sign (哈基米签名)**: The process of generating an Ed25519 signature in Hajimi format.
+- **HJM-Verify (哈/哈气)**: The process of verifying a signature's authenticity.
+- **Public Key (公基)**: The publicly distributable key in Hajimi format.
+- **Private Key (私基)**: The sensitive, non-distributable key in Hajimi format.
+- **Identity (基份)**: A structured token containing a user's metadata (Name, Email) and their Public Key (公基).
 - **Obfuscation Key (混淆密钥)**: A 8-bit key used for symmetric XOR operations.
 - **Symmetric Hajimi (对称基米)**: The data format after standard HJM-16 encoding and optional symmetric XOR obfuscation.
 - **Asymmetric Hajimi (非对称基米)**: The data format representing results of asymmetric operations (RSA, Ed25519, X25519), including encrypted payloads and digital signatures.
